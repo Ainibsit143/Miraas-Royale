@@ -2,6 +2,8 @@
 
 **Timeless Comfort. Refined Living.**
 
+**Live Link**  https://miraas-royale.vercel.app/
+
 A responsive luxury furniture landing page for MIRAAS ROYALE, built with React, Vite and Tailwind CSS. The design uses a rich burgundy, mocha and gold palette, with elegant typography, large furniture photography and subtle scroll animations.
 
 ## Sections
