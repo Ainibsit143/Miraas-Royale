@@ -2,11 +2,12 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Collections from './components/Collections'
 import Signature from './components/Signature'
-import Story from './components/Story'
 import Craftsmanship from './components/Craftsmanship'
-import Inspiration from './components/Inspiration'
+import Lifestyle from './components/Lifestyle'
+import Features from './components/Features'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
+import Reveal from './components/Reveal'
 
 function App() {
   return (
@@ -14,12 +15,24 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Collections />
-        <Signature />
-        <Story />
-        <Craftsmanship />
-        <Inspiration />
-        <CTA />
+        <Reveal>
+          <Collections />
+        </Reveal>
+        <Reveal>
+          <Signature />
+        </Reveal>
+        <Reveal>
+          <Craftsmanship />
+        </Reveal>
+        <Reveal>
+          <Lifestyle />
+        </Reveal>
+        <Reveal>
+          <Features />
+        </Reveal>
+        <Reveal>
+          <CTA />
+        </Reveal>
       </main>
       <Footer />
     </>

@@ -1,4 +1,6 @@
-const linkClass = 'transition-colors hover:text-bronze'
+import { useState } from 'react'
+
+const linkClass = 'transition-colors hover:text-gold'
 
 const socials = [
   {
@@ -26,40 +28,58 @@ const socials = [
       </>
     ),
   },
+  {
+    name: 'YouTube',
+    icon: (
+      <>
+        <rect x="3" y="6" width="18" height="12" rx="4" />
+        <path d="M10.5 9.5v5l4-2.5z" />
+      </>
+    ),
+  },
 ]
 
 function Footer() {
+  const [email, setEmail] = useState('')
+  const [sent, setSent] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (email.trim() === '') return
+    setSent(true)
+    setEmail('')
+  }
+
   return (
     <footer
       id="contact"
-      className="scroll-mt-16 border-t border-bronze/30 bg-mocha px-[5vw] pb-8 pt-20 text-cream"
+      className="scroll-mt-16 border-t border-gold/40 bg-mocha px-[5vw] pb-8 pt-16 text-cream"
     >
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+      <div className="mx-auto grid max-w-[1200px] gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1.1fr_1.3fr]">
         <div>
-          <a href="#home" className="flex items-center gap-3 text-cream">
-            <span className="grid h-[38px] w-[38px] place-items-center rounded-full border border-cream font-heading text-[0.95rem] font-semibold">
+          <a href="#home" className="flex items-center gap-3">
+            <span className="grid h-[38px] w-[38px] place-items-center rounded-full border border-gold font-heading text-[0.95rem] font-semibold text-gold">
               MR
             </span>
-            <span className="font-heading text-[1.1rem] font-semibold tracking-[0.22em]">
+            <span className="font-heading text-[1.1rem] font-semibold tracking-[0.22em] text-ivory">
               MIRAAS ROYALE
             </span>
           </a>
-
-          <p className="mb-5 mt-4 max-w-[20ch] font-heading text-[1.35rem] italic">
-            Timeless Comfort. Refined Living.
+          <p className="mt-4 font-heading text-[1.25rem] italic text-cream/90">
+            Redefining Luxury. At Home.
           </p>
-
-          <div className="flex gap-3">
+          <div className="mt-6 flex gap-3">
             {socials.map((item) => (
               <a
                 key={item.name}
                 href="#"
                 aria-label={item.name}
-                className="grid h-10 w-10 place-items-center rounded-full border border-bronze/60 transition-colors hover:bg-bronze hover:text-mocha"
+                className="grid h-10 w-10 place-items-center rounded-full border border-gold/60 text-gold transition-colors hover:bg-gold hover:text-mocha"
               >
                 <svg
                   viewBox="0 0 24 24"
                   className="h-[18px] w-[18px] fill-none stroke-current stroke-[1.6]"
+                  aria-hidden="true"
                 >
                   {item.icon}
                 </svg>
@@ -69,39 +89,62 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="mb-3.5 font-heading text-[1.25rem] text-bronze">Explore</h4>
-          <ul className="space-y-1.5 text-[0.92rem]">
+          <h4 className="mb-4 font-heading text-[1.25rem] text-gold">Quick Links</h4>
+          <ul className="space-y-2 text-[0.92rem]">
             <li><a href="#home" className={linkClass}>Home</a></li>
             <li><a href="#collections" className={linkClass}>Collections</a></li>
-            <li><a href="#story" className={linkClass}>Our Story</a></li>
             <li><a href="#craftsmanship" className={linkClass}>Craftsmanship</a></li>
+            <li><a href="#inspiration" className={linkClass}>Inspiration</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="mb-3.5 font-heading text-[1.25rem] text-bronze">Collections</h4>
-          <ul className="space-y-1.5 text-[0.92rem]">
-            <li><a href="#collections" className={linkClass}>Living Room</a></li>
-            <li><a href="#collections" className={linkClass}>Bedroom</a></li>
-            <li><a href="#collections" className={linkClass}>Dining Room</a></li>
-            <li><a href="#collections" className={linkClass}>Accent Furniture</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="mb-3.5 font-heading text-[1.25rem] text-bronze">Contact</h4>
-          <ul className="space-y-1.5 text-[0.92rem]">
+          <h4 className="mb-4 font-heading text-[1.25rem] text-gold">Contact</h4>
+          <ul className="space-y-2 text-[0.92rem]">
             <li><a href="mailto:hello@miraasroyale.com" className={linkClass}>hello@miraasroyale.com</a></li>
             <li><a href="tel:+920000000000" className={linkClass}>+92 000 0000000</a></li>
             <li>Showroom address, City, Pakistan</li>
             <li>Mon–Sat, 11am–8pm</li>
           </ul>
         </div>
+
+        <div>
+          <h4 className="mb-4 font-heading text-[1.25rem] text-gold">Join Our Newsletter</h4>
+          <p className="mb-4 text-[0.92rem] text-cream/80">
+            Be the first to know about new collections.
+          </p>
+
+          {sent ? (
+            <p className="text-[0.95rem] text-gold">
+              Thank you. You are on the list.
+            </p>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex gap-2">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                aria-label="Email address"
+                className="min-w-0 flex-1 rounded-full border border-gold/50 bg-transparent px-5 py-3 text-[0.9rem] text-ivory placeholder:text-cream/50 focus:border-gold focus:outline-none"
+              />
+              <button
+                type="submit"
+                aria-label="Subscribe"
+                className="grid h-[46px] w-[46px] shrink-0 place-items-center rounded-full bg-gold text-mocha transition-colors hover:bg-ivory"
+              >
+                →
+              </button>
+            </form>
+          )}
+        </div>
       </div>
 
-      <p className="mt-14 border-t border-cream/15 pt-5 text-[0.82rem] opacity-70">
-        © 2026 MIRAAS ROYALE. All rights reserved.
-      </p>
+      <div className="mx-auto mt-14 flex max-w-[1200px] flex-wrap justify-between gap-3 border-t border-cream/15 pt-5 text-[0.82rem] text-cream/70">
+        <p>© 2026 MIRAAS ROYALE. All rights reserved.</p>
+        <p>Designed with elegance. For a more beautiful home.</p>
+      </div>
     </footer>
   )
 }

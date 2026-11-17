@@ -2,39 +2,37 @@ function Hero() {
   return (
     <section
       id="home"
-      className="grid min-h-screen items-center gap-[5vw] px-[5vw] pb-[70px] pt-[130px] lg:grid-cols-[1.1fr_0.9fr]"
+      className="relative flex min-h-screen items-center bg-burgundy-deep"
     >
-      <div>
-        <h1 className="mb-7 text-[clamp(3rem,7.5vw,7rem)] text-burgundy">
-          <span className="block">Timeless Comfort.</span>
-          <span className="block pl-[clamp(0px,4vw,60px)] italic text-mocha">
-            Refined Living.
-          </span>
-        </h1>
+      <img
+        src="/images/hero-wide.jpeg"
+        alt="Grand living room with a carved gilded sofa, crystal chandelier and burgundy velvet curtains"
+        className="absolute inset-0 h-full w-full object-cover object-right"
+      />
+      <div className="absolute inset-0 bg-linear-to-r from-burgundy-deep/90 via-burgundy-deep/60 to-burgundy-deep/30 lg:via-burgundy-deep/50 lg:to-transparent"></div>
 
-        <p className="mb-9 max-w-[46ch] text-[1.05rem]">
-          MIRAAS ROYALE designs sofas, beds and tables with soft, sculpted
-          forms and honest materials, made for homes that are lived in every
-          day.
+      <div className="relative max-w-[640px] px-[5vw] pb-20 pt-32 text-ivory">
+        <p className="mb-5 text-[0.8rem] font-medium tracking-[0.3em] text-gold">
+          MIRAAS ROYALE
         </p>
 
-        <div className="flex flex-wrap gap-3.5">
-          <a
-            href="#collections"
-            className="inline-block rounded-full border border-burgundy bg-burgundy px-8 py-[15px] text-[0.95rem] font-medium text-ivory transition duration-300 hover:-translate-y-0.5"
-          >
-            Explore Collection
-          </a>
-          <a
-            href="#story"
-            className="inline-block rounded-full border border-burgundy px-8 py-[15px] text-[0.95rem] font-medium text-burgundy transition duration-300 hover:-translate-y-0.5 hover:bg-burgundy hover:text-ivory"
-          >
-            Discover Our Story
-          </a>
-        </div>
-      </div>
+        <h1 className="mb-6 text-[clamp(3rem,7vw,6rem)] text-ivory">
+          <span className="block">Timeless Comfort.</span>
+          <span className="block italic">Refined Living.</span>
+        </h1>
 
-      <div className="h-[55vh] rounded-[0_110px_0_110px] bg-linear-to-br from-cream to-bronze lg:h-[min(75vh,700px)] lg:rounded-[0_180px_0_180px]"></div>
+        <p className="mb-9 max-w-[42ch] text-[1.05rem] text-ivory/85">
+          Experience the art of luxury with furniture that transforms your home
+          into a royal retreat.
+        </p>
+
+        <a
+          href="#collections"
+          className="inline-flex items-center gap-2 rounded-full border border-gold px-8 py-[13px] text-[0.95rem] font-medium text-gold transition duration-300 hover:bg-gold hover:text-burgundy-deep"
+        >
+          Explore Collections <span aria-hidden="true">→</span>
+        </a>
+      </div>
     </section>
   )
 }

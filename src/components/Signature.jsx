@@ -1,60 +1,85 @@
 const pieces = [
   {
     name: 'Aurelia Sofa',
-    detail: 'Three-seat sofa in bouclé with a solid walnut base.',
+    detail: 'Three-seat sofa with a hand-carved gilded frame and cream velvet.',
     price: 'PKR 485,000',
-    bg: 'from-burgundy to-bronze',
+    image: '/images/signature_sofa.jpeg',
+    pos: 'object-[50%_70%]',
+    alt: 'Aurelia three-seat sofa with a carved gilded frame',
   },
   {
     name: 'Selene Bed',
-    detail: 'King bed with a deep, upholstered headboard.',
+    detail: 'King bed with a tufted headboard and a gilded carved frame.',
     price: 'PKR 395,000',
-    bg: 'from-cream to-bronze',
+    image: '/images/signature_bed.jpeg',
+    pos: 'object-center',
+    alt: 'Selene king bed with a tufted headboard and burgundy bedding',
   },
   {
-    name: 'Orla Dining Table',
-    detail: 'Oval pedestal table in oak, seating six.',
+    name: 'Orla Centre Table',
+    detail: 'Hand-carved gilded centre table with a polished marble top.',
     price: 'PKR 320,000',
-    bg: 'from-mocha to-bronze',
+    image: '/images/signature_table.jpeg',
+    pos: 'object-[50%_80%]',
+    alt: 'Orla centre table with carved gilded legs and a marble top',
   },
   {
     name: 'Vesper Lounge Chair',
-    detail: 'Rounded lounge chair with a bronze side table.',
+    detail: 'Wing armchair with a gilded frame and a burgundy velvet cushion.',
     price: 'PKR 165,000',
-    bg: 'from-bronze to-ivory',
+    image: '/images/signature_chair.jpeg',
+    pos: 'object-center',
+    alt: 'Vesper wing armchair with a carved gilded frame',
   },
 ]
 
 function Signature() {
   return (
-    <section id="signature" className="scroll-mt-16 px-[5vw] py-[90px] lg:py-[120px]">
-      <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+    <section
+      id="signature"
+      className="scroll-mt-16 bg-ivory px-[5vw] py-[90px] lg:py-[120px]"
+    >
+      <div className="mb-14 text-center">
+        <p className="mb-4 flex items-center justify-center gap-4 text-[0.78rem] font-medium tracking-[0.3em] text-bronze">
+          <span className="h-px w-10 bg-bronze/60"></span>
+          SIGNATURE PIECES
+          <span className="h-px w-10 bg-bronze/60"></span>
+        </p>
         <h2 className="text-[clamp(2.3rem,5vw,4.4rem)] text-burgundy">
-          Signature pieces
+          Pieces our clients love
         </h2>
-        <p className="max-w-[42ch]">
-          A first look at the pieces our clients ask for most. Prices shown are
+        <p className="mx-auto mt-4 max-w-[48ch] text-mocha/80">
+          A first look at the pieces we are asked for most. Prices shown are
           starting prices.
         </p>
       </div>
 
-      <div className="grid gap-[26px] sm:grid-cols-2 lg:grid-cols-4 lg:items-start">
+      <div className="mx-auto grid max-w-[1200px] gap-7 sm:grid-cols-2 lg:grid-cols-4">
         {pieces.map((piece) => (
-          <article key={piece.name} className="group lg:even:mt-14">
-            <div className="overflow-hidden rounded-[4px_40px_4px_40px]">
-              <div
-                className={`aspect-[4/5] bg-linear-to-br ${piece.bg} transition-transform duration-1000 group-hover:scale-105`}
-              ></div>
+          <article
+            key={piece.name}
+            className="group flex flex-col border border-gold/40 bg-cream/50 p-3 transition duration-500 hover:-translate-y-1 hover:border-gold hover:shadow-[0_18px_40px_rgba(73,51,44,0.15)]"
+          >
+            <div className="overflow-hidden">
+              <img
+                src={piece.image}
+                alt={piece.alt}
+                loading="lazy"
+                className={`aspect-[4/5] w-full object-cover ${piece.pos} transition-transform duration-1000 group-hover:scale-105`}
+              />
             </div>
 
-            <h3 className="mb-0.5 mt-4 text-[1.7rem] text-mocha">{piece.name}</h3>
-            <p className="text-[0.9rem] opacity-80">{piece.detail}</p>
-
-            <div className="mt-2.5 flex items-center justify-between border-t border-mocha/15 pt-3 font-medium">
-              <span>{piece.price}</span>
+            <div className="flex flex-1 flex-col px-2 pb-3 pt-5 text-center">
+              <h3 className="text-[1.6rem] text-burgundy">{piece.name}</h3>
+              <p className="mt-2 flex-1 text-[0.9rem] text-mocha/80">
+                {piece.detail}
+              </p>
+              <p className="mt-4 font-heading text-[1.35rem] text-bronze">
+                {piece.price}
+              </p>
               <a
                 href={`mailto:hello@miraasroyale.com?subject=Enquiry: ${piece.name}`}
-                className="border-b border-bronze text-[0.88rem] text-burgundy"
+                className="mt-4 inline-block rounded-full border border-gold px-6 py-2.5 text-[0.88rem] font-medium text-burgundy transition-colors duration-300 hover:bg-gold hover:text-burgundy-deep"
               >
                 Enquire
               </a>

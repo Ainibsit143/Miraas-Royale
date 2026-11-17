@@ -2,9 +2,11 @@
 
 @theme {
   --color-burgundy: #542d32;
+  --color-burgundy-deep: #3a1f23;
   --color-mocha: #49332c;
   --color-cream: #ede3d7;
   --color-bronze: #b18b65;
+  --color-gold: #c9a66b;
   --color-ivory: #f9f5ef;
 
   --font-heading: 'Cormorant Garamond', Georgia, serif;

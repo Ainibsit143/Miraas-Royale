@@ -1,60 +1,36 @@
-const details = [
-  {
-    title: 'Premium upholstery',
-    text: 'Dense bouclé and woven fabrics over high-resilience foam that keeps its shape.',
-    bg: 'from-cream to-bronze',
-    shape: 'rounded-t-[120px] rounded-b-md',
-    offset: '',
-  },
-  {
-    title: 'Natural wood',
-    text: 'Kiln-dried walnut and oak, chosen for grain and finished with a soft oil.',
-    bg: 'from-mocha to-bronze',
-    shape: 'rounded-b-[120px] rounded-t-md',
-    offset: 'lg:mt-11',
-  },
-  {
-    title: 'Refined details',
-    text: 'Tailored seams and piping, stitched evenly and matched to the pattern.',
-    bg: 'from-burgundy to-cream',
-    shape: 'rounded-t-[120px] rounded-b-md',
-    offset: '',
-  },
-  {
-    title: 'Thoughtful build',
-    text: 'Joined frames, not stapled ones, so every piece stays steady for years.',
-    bg: 'from-bronze to-mocha',
-    shape: 'rounded-b-[120px] rounded-t-md',
-    offset: 'lg:mt-[88px]',
-  },
-]
-
 function Craftsmanship() {
   return (
-    <section id="craftsmanship" className="scroll-mt-16 bg-cream px-[5vw] py-[90px] lg:py-[120px]">
-      <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
-        <h2 className="text-[clamp(2.3rem,5vw,4.4rem)] text-burgundy">
-          The detail is
-          <br />
-          the design.
-        </h2>
-        <p className="max-w-[42ch]">
-          Quality shows up in the parts you touch and the parts you never see.
-        </p>
-      </div>
+    <section
+      id="craftsmanship"
+      className="relative scroll-mt-16 overflow-hidden bg-burgundy-deep text-ivory"
+    >
+      <img
+        src="/images/craft-wide.jpeg"
+        alt="Craftsman hand-carving gilded scrollwork into a wooden panel"
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-burgundy-deep/75 lg:bg-transparent lg:bg-linear-to-r lg:from-transparent lg:from-25% lg:via-burgundy-deep/65 lg:via-60% lg:to-burgundy-deep"></div>
 
-      <div className="grid gap-[22px] sm:grid-cols-2 lg:grid-cols-4 lg:items-start">
-        {details.map((item) => (
-          <article key={item.title} className={`group ${item.offset}`}>
-            <div className={`overflow-hidden ${item.shape}`}>
-              <div
-                className={`aspect-[3/4] bg-linear-to-br ${item.bg} transition-transform duration-1000 group-hover:scale-105`}
-              ></div>
-            </div>
-            <h3 className="mb-1.5 mt-4 text-[1.6rem] text-mocha">{item.title}</h3>
-            <p className="text-[0.92rem]">{item.text}</p>
-          </article>
-        ))}
+      <div className="relative grid min-h-[480px] items-center px-[5vw] py-20 lg:grid-cols-2">
+        <div className="lg:col-start-2 lg:pl-10">
+          <p className="mb-4 text-[0.78rem] font-medium tracking-[0.3em] text-gold">
+            — OUR CRAFTSMANSHIP
+          </p>
+          <h2 className="mb-5 text-[clamp(2.3rem,5vw,4rem)] text-ivory">
+            Art in Every Detail
+          </h2>
+          <p className="mb-8 max-w-[44ch] text-ivory/80">
+            From hand-carved elegance to premium materials, each piece is a
+            masterpiece of craftsmanship.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full border border-gold px-8 py-[13px] text-[0.95rem] font-medium text-gold transition duration-300 hover:bg-gold hover:text-burgundy-deep"
+          >
+            Discover Our Craft <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </section>
   )
